@@ -1,0 +1,256 @@
+{
+  "eProducts": [
+    {
+      "id": 1,
+      "title": "Samsung Galaxy S21",
+      "description": "Flagship smartphone from Samsung with powerful features.",
+      "price": 14999000,
+      "category": "Electronics"
+    },
+    {
+      "id": 2,
+      "title": "Apple iPhone 13 Pro",
+      "description": "Latest iPhone with advanced camera technology and performance.",
+      "price": 19999000,
+      "category": "Electronics"
+    },
+    {
+      "id": 3,
+      "title": "Xiaomi Mi 11",
+      "description": "High-performance smartphone from Xiaomi with a stunning display.",
+      "price": 8499000,
+      "category": "Electronics"
+    },
+    {
+      "id": 4,
+      "title": "Samsung Galaxy Watch 4",
+      "description": "Smartwatch with health and fitness tracking features.",
+      "price": 3599000,
+      "category": "Wearables"
+    },
+    {
+      "id": 5,
+      "title": "Apple AirPods Pro",
+      "description": "Wireless earbuds with active noise cancellation technology.",
+      "price": 3299000,
+      "category": "Audio"
+    },
+    {
+      "id": 6,
+      "title": "Xiaomi Mi Smart Band 6",
+      "description": "Fitness tracker with large AMOLED display and multiple workout modes.",
+      "price": 549000,
+      "category": "Wearables"
+    },
+    {
+      "id": 7,
+      "title": "Samsung 4K QLED TV",
+      "description": "Ultra HD Smart TV with Quantum Dot technology for vibrant colors.",
+      "price": 15999000,
+      "category": "TVs"
+    },
+    {
+      "id": 8,
+      "title": "Apple MacBook Air",
+      "description": "Lightweight laptop with Apple M1 chip for improved performance.",
+      "price": 15999000,
+      "category": "Computers"
+    },
+    {
+      "id": 9,
+      "title": "Xiaomi Redmi Note 10",
+      "description": "Budget-friendly smartphone with a versatile camera system.",
+      "price": 3499000,
+      "category": "Electronics"
+    },
+    {
+      "id": 10,
+      "title": "Samsung Galaxy Buds Pro",
+      "description": "True wireless earbuds with immersive sound and intelligent active noise cancellation.",
+      "price": 2799000,
+      "category": "Audio"
+    },
+    {
+      "id": 11,
+      "title": "Apple iPad Pro",
+      "description": "Powerful tablet with Liquid Retina XDR display and M1 chip.",
+      "price": 12999000,
+      "category": "Tablets"
+    },
+    {
+      "id": 12,
+      "title": "Xiaomi Mi Robot Vacuum",
+      "description": "Smart robotic vacuum with mapping and navigation capabilities.",
+      "price": 2799000,
+      "category": "Appliances"
+    },
+    {
+      "id": 13,
+      "title": "Samsung Odyssey G9 Gaming Monitor",
+      "description": "Curved gaming monitor with QLED technology for an immersive gaming experience.",
+      "price": 24999000,
+      "category": "Monitors"
+    },
+    {
+      "id": 14,
+      "title": "Apple Watch Series 7",
+      "description": "Latest smartwatch with larger and more durable display.",
+      "price": 4999000,
+      "category": "Wearables"
+    },
+    {
+      "id": 15,
+      "title": "Xiaomi Mi True Wireless Earphones 2",
+      "description": "Wireless earphones with high-quality audio and touch controls.",
+      "price": 799000,
+      "category": "Audio"
+    },
+    {
+      "id": 16,
+      "title": "Samsung Galaxy Tab S7+",
+      "description": "Premium Android tablet with S Pen and AMOLED display.",
+      "price": 10999000,
+      "category": "Tablets"
+    },
+    {
+      "id": 17,
+      "title": "Apple iMac 24-inch",
+      "description": "All-in-one desktop with vibrant colors and powerful performance.",
+      "price": 18999000,
+      "category": "Computers"
+    },
+    {
+      "id": 18,
+      "title": "Xiaomi Mi Box S",
+      "description": "Android TV box for streaming with 4K HDR support.",
+      "price": 799000,
+      "category": "TVs"
+    },
+    {
+      "id": 19,
+      "title": "Samsung HW-Q950T Soundbar",
+      "description": "Immersive soundbar with Dolby Atmos and DTS:X support.",
+      "price": 11999000,
+      "category": "Audio"
+    }
+  ],
+  "shoesProducts": [
+    {
+      "id": 21,
+      "title": "Nike Air Max 97",
+      "description": "Iconic sneakers with visible air cushioning for maximum comfort.",
+      "price": {
+        "amount": 2499000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 22,
+      "title": "Adidas Ultraboost",
+      "description": "Running shoes with responsive cushioning and stylish design.",
+      "price": {
+        "amount": 2299000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 23,
+      "title": "Puma Cali",
+      "description": "Classic sneakers with a modern twist, perfect for everyday wear.",
+      "price": {
+        "amount": 1499000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 24,
+      "title": "Converse Chuck Taylor All Star",
+      "description": "Timeless and versatile sneakers suitable for any occasion.",
+      "price": {
+        "amount": 799000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 25,
+      "title": "Vans Old Skool",
+      "description": "Skate-inspired sneakers with a signature side stripe.",
+      "price": {
+        "amount": 1199000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 26,
+      "title": "Reebok Classic Leather",
+      "description": "Timeless design and comfort make these sneakers a wardrobe staple.",
+      "price": {
+        "amount": 1799000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 27,
+      "title": "New Balance 990v5",
+      "description": "Premium running shoes known for their superior comfort and support.",
+      "price": {
+        "amount": 2999000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 28,
+      "title": "Skechers D'Lites",
+      "description": "Sporty and stylish sneakers with air-cooled memory foam for added comfort.",
+      "price": {
+        "amount": 1299000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 29,
+      "title": "Under Armour HOVR Phantom 2",
+      "description": "High-performance running shoes with UA HOVR technology for energy return.",
+      "price": {
+        "amount": 2799000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 30,
+      "title": "Salomon Speedcross 5",
+      "description": "Trail running shoes designed for maximum grip and stability on various terrains.",
+      "price": {
+        "amount": 2499000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 31,
+      "title": "ASICS Gel-Kayano 27",
+      "description": "Premium long-distance running shoes with advanced stability features.",
+      "price": {
+        "amount": 2899000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 32,
+      "title": "FILA Disruptor II",
+      "description": "Chunky sneakers with a retro vibe, perfect for a fashion statement.",
+      "price": {
+        "amount": 1599000
+      },
+      "category": "Footwear"
+    },
+    {
+      "id": 33,
+      "title": "Lacoste Carnaby Evo",
+      "description": "Classic and clean sneakers with the iconic Lacoste crocodile logo.",
+      "price": {
+        "amount": 1899000
+      },
+      "category": "Footwear"
+    }
+  ]
+}
