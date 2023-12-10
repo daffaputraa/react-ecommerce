@@ -94,7 +94,7 @@ const Register = () => {
                     onChange={(e) => handlePassword(e)}
                     onPaste={(e) => handlePaste(e)}
                   ></Input>
-                  <p className={`${color}`}>{validator}</p>
+                  <small className={`${color}`}>{validator}</small>
                 </div>
               </div>
             </div>
