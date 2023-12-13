@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Register = () => {
   const [color, setColor] = useState("");
@@ -19,6 +19,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
+  const [emailText, setEmailText] = useState("");
 
   const handlePassword = (e: any) => {
     const newPassword = e.target.value;
@@ -41,87 +42,87 @@ const Register = () => {
     // pake if dulu biar gampang walau panjang
   };
 
-  const handlerEmail = (e: any) => {
-    setEmail(e.target.value);
-    const isValid = email.endsWith("@gmail.co");
-    isValid === true ? setIsValidEmail(true) : setIsValidEmail(false);
-
-    console.log(isValid);
-    console.log(isValidEmail);
-  };
-
-  const handlePaste = (e: any) => {
-    e.preventDefault();
-  };
+  useEffect(() => {
+    if (email.length > 1) {
+      if (email.endsWith("@gmail.com")) {
+        setIsValidEmail(true);
+      } else {
+        setIsValidEmail(false);
+      }
+    }
+  }, [email]);
 
   return (
     <>
-      <div className="flex w-full h-screen items-center justify-center">
-        <Card className="flex flex-col items-start w-full max-w-lg">
-          <CardHeader className="mb-3">
-            <CardTitle>Hello! Let's Join Us!</CardTitle>
-            <CardDescription>Input what it takes, to registes.</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col  w-full">
-            <div className="w-full mb-3">
-              <div className="mb-3 w-full">
-                <Label>Name</Label>
-                <Input
-                  placeholder="Input your email here.."
-                  className="w-full"
-                  type="text"
-                ></Input>
-              </div>
-              <div className="mb-3 w-full">
-                <Label>Email</Label>
-                <Input
-                  placeholder="Input your email here.."
-                  className="w-full"
-                  type="email"
-                  onChange={(e) => handlerEmail(e)}
-                ></Input>
-                <small className={`text-red-500`}>
-                  {isValidEmail ? "" : "Please input valid email!"}
-                </small>
-              </div>
-              <div>
-                <div>
-                  <Label>Password</Label>
+      <div className="flex w-full h-screen items-center justify-center ">
+        <div className="w-full px-4">
+          <Card className="flex flex-col items-start w-full max-w-lg ">
+            <CardHeader className="mb-3">
+              <CardTitle>Hello! Let's Join Us!</CardTitle>
+              <CardDescription>
+                Input what it takes, to registes.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col  w-full">
+              <div className="w-full mb-3">
+                <div className="mb-3 w-full">
+                  <Label>Name</Label>
                   <Input
-                    placeholder="Input your password here.."
-                    className="w-full inline-block"
-                    type="password"
-                    onChange={(e) => handlePassword(e)}
-                    onPaste={(e) => handlePaste(e)}
+                    placeholder="Input your email here.."
+                    className="w-full"
+                    type="text"
                   ></Input>
-                  <small className={`${color}`}>{validator}</small>
+                </div>
+                <div className="mb-3 w-full">
+                  <Label>Email</Label>
+                  <Input
+                    placeholder="Input your email here.."
+                    className="w-full"
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  ></Input>
+                  <small className={`text-red-500`}>
+                    {isValidEmail ? "" : `Please input valid email!`}
+                  </small>
+                </div>
+                <div>
+                  <div>
+                    <Label>Password</Label>
+                    <Input
+                      placeholder="Input your password here.."
+                      className="w-full inline-block"
+                      type="password"
+                      onChange={(e) => handlePassword(e)}
+                    ></Input>
+                    <small className={`${color}`}>{validator}</small>
+                  </div>
                 </div>
               </div>
-            </div>
-            <Button>Register</Button>
-          </CardContent>
+              <Button>Register</Button>
+            </CardContent>
 
-          <small className="text-xs font-semibold text-gray-400 text-center mx-auto">
-            OR
-          </small>
-
-          <CardFooter className="flex-col gap-2 w-full pt-6">
-            <Button className="gap-2 w-full" variant={"outline"}>
-              <Google></Google>
-              Continue with Google
-            </Button>
-            <Button className="gap-2 w-full mb-2" variant={"outline"}>
-              <Facebook></Facebook>
-              Continue with Google
-            </Button>
-            <small className="text-sm font-medium leading-none">
-              Already have an account?{" "}
-              <Link to="/" className="font-bold underline">
-                Login Here!
-              </Link>
+            <small className="text-xs font-semibold text-gray-400 text-center mx-auto">
+              OR
             </small>
-          </CardFooter>
-        </Card>
+
+            <CardFooter className="flex-col gap-2 w-full pt-6">
+              <Button className="gap-2 w-full" variant={"outline"}>
+                <Google></Google>
+                Continue with Google
+              </Button>
+              <Button className="gap-2 w-full mb-2" variant={"outline"}>
+                <Facebook></Facebook>
+                Continue with Google
+              </Button>
+              <small className="text-sm font-medium leading-none">
+                Already have an account?{" "}
+                <Link to="/" className="font-bold underline">
+                  Login Here!
+                </Link>
+              </small>
+            </CardFooter>
+          </Card>
+        </div>
       </div>
     </>
   );
