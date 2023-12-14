@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Register = () => {
   const formik = useFormik({
@@ -21,6 +22,19 @@ const Register = () => {
       email: "",
       password: "",
     },
+    validationSchema: Yup.object({
+      name: Yup.string()
+
+        .max(15, "Karakter harus kurang dari 15")
+        .required("Required"),
+      email: Yup.string().email("invalid email").required("Required"),
+      password: Yup.string()
+        .required("Please Enter your password")
+        .matches(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+          "Ups, pastikan masukkan passwod dengan huruf besar, huruf kecil, dan spesial karakter"
+        ),
+    }),
     onSubmit: () => {
       console.log(formik.values);
     },
@@ -88,6 +102,13 @@ const Register = () => {
                       name="name"
                       onChange={formik.handleChange}
                     ></Input>
+                    {formik.touched.name && formik.errors.name ? (
+                      <small className="text-red-500">
+                        {formik.errors.name}
+                      </small>
+                    ) : (
+                      ""
+                    )}
                   </div>
                   <div className="mb-3 w-full">
                     <Label>Email</Label>
@@ -99,7 +120,9 @@ const Register = () => {
                       onChange={formik.handleChange}
                     ></Input>
                     <small className={`text-red-500`}>
-                      {/* {isValidEmail ? "" : `Please input valid email!`} */}
+                      {formik.touched.email && formik.errors.email
+                        ? `${formik.errors.email}`
+                        : ""}
                     </small>
                   </div>
                   <div>
@@ -112,7 +135,11 @@ const Register = () => {
                         name="password"
                         onChange={formik.handleChange}
                       ></Input>
-                      {/* <small className={`${color}`}>{validator}</small> */}
+                      <small className={`text-red-500`}>
+                        {formik.touched.password && formik.errors.password
+                          ? `${formik.errors.password}`
+                          : ""}
+                      </small>
                     </div>
                   </div>
                 </div>
