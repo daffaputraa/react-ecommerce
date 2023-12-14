@@ -12,94 +12,113 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useFormik } from "formik";
 
 const Register = () => {
-  const [color, setColor] = useState("");
-  const [validator, setValidator] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(true);
-  const [emailText, setEmailText] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    onSubmit: () => {
+      console.log(formik.values);
+    },
+  });
 
-  const handlePassword = (e: any) => {
-    const newPassword = e.target.value;
-    setPassword(newPassword);
-    if (newPassword.length > 1) {
-      setColor("text-red-500");
-      setValidator("Your password is really weakkkk!😔");
-    }
-    if (newPassword.length == 5 || newPassword.length > 5) {
-      setColor("text-yellow-500");
-      setValidator(
-        "Umm.., it's enough but would be better if you make it longer!🤗"
-      );
-    }
-    if (newPassword.length > 8) {
-      setColor("text-blue-500");
-      setValidator("It's Enouggghhhh, cool 😄");
-    }
+  // // initial value formik
+  // const [color, setColor] = useState("");
+  // const [validator, setValidator] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [isValidEmail, setIsValidEmail] = useState(true);
+  // const [emailText, setEmailText] = useState("");
 
-    // pake if dulu biar gampang walau panjang
-  };
+  // const handlePassword = (e: any) => {
+  //   const newPassword = e.target.value;
+  //   setPassword(newPassword);
+  //   if (newPassword.length > 1) {
+  //     setColor("text-red-500");
+  //     setValidator("Your password is really weakkkk!😔");
+  //   }
+  //   if (newPassword.length == 5 || newPassword.length > 5) {
+  //     setColor("text-yellow-500");
+  //     setValidator(
+  //       "Umm.., it's enough but would be better if you make it longer!🤗"
+  //     );
+  //   }
+  //   if (newPassword.length > 8) {
+  //     setColor("text-blue-500");
+  //     setValidator("It's Enouggghhhh, cool 😄");
+  //   }
 
-  useEffect(() => {
-    if (email.length > 1) {
-      if (email.endsWith("@gmail.com")) {
-        setIsValidEmail(true);
-      } else {
-        setIsValidEmail(false);
-      }
-    }
-  }, [email]);
+  //   // pake if dulu biar gampang walau panjang
+  // };
+
+  // useEffect(() => {
+  //   if (email.length > 1) {
+  //     if (email.endsWith("@gmail.com")) {
+  //       setIsValidEmail(true);
+  //     } else {
+  //       setIsValidEmail(false);
+  //     }
+  //   }
+  // }, [email]);
 
   return (
     <>
-      <div className="flex w-full h-screen items-center justify-center ">
+      <div className="flex w-full h-screen items-center justify-center">
         <div className="w-full px-4">
-          <Card className="flex flex-col items-start w-full max-w-lg ">
+          <Card className="flex flex-col items-start w-full max-w-lg mx-auto">
             <CardHeader className="mb-3">
               <CardTitle>Hello! Let's Join Us!</CardTitle>
               <CardDescription>
                 Input what it takes, to registes.
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-col  w-full">
-              <div className="w-full mb-3">
-                <div className="mb-3 w-full">
-                  <Label>Name</Label>
-                  <Input
-                    placeholder="Input your email here.."
-                    className="w-full"
-                    type="text"
-                  ></Input>
-                </div>
-                <div className="mb-3 w-full">
-                  <Label>Email</Label>
-                  <Input
-                    placeholder="Input your email here.."
-                    className="w-full"
-                    type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  ></Input>
-                  <small className={`text-red-500`}>
-                    {isValidEmail ? "" : `Please input valid email!`}
-                  </small>
-                </div>
-                <div>
-                  <div>
-                    <Label>Password</Label>
+            <form onSubmit={formik.handleSubmit}>
+              <CardContent className="flex flex-col  w-full">
+                <div className="w-full mb-3">
+                  <div className="mb-3 w-full">
+                    <Label>Name</Label>
                     <Input
-                      placeholder="Input your password here.."
-                      className="w-full inline-block"
-                      type="password"
-                      onChange={(e) => handlePassword(e)}
+                      placeholder="Input your email here.."
+                      className="w-full"
+                      type="text"
+                      name="name"
+                      onChange={formik.handleChange}
                     ></Input>
-                    <small className={`${color}`}>{validator}</small>
+                  </div>
+                  <div className="mb-3 w-full">
+                    <Label>Email</Label>
+                    <Input
+                      placeholder="Input your email here.."
+                      className="w-full"
+                      type="email"
+                      name="email"
+                      onChange={formik.handleChange}
+                    ></Input>
+                    <small className={`text-red-500`}>
+                      {/* {isValidEmail ? "" : `Please input valid email!`} */}
+                    </small>
+                  </div>
+                  <div>
+                    <div>
+                      <Label>Password</Label>
+                      <Input
+                        placeholder="Input your password here.."
+                        className="w-full inline-block"
+                        type="password"
+                        name="password"
+                        onChange={formik.handleChange}
+                      ></Input>
+                      {/* <small className={`${color}`}>{validator}</small> */}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <Button>Register</Button>
-            </CardContent>
+                <Button type="submit">Register</Button>
+              </CardContent>
+            </form>
 
             <small className="text-xs font-semibold text-gray-400 text-center mx-auto">
               OR
