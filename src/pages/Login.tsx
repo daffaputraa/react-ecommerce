@@ -21,29 +21,35 @@ const Login = () => {
             <CardTitle>Hi! Welcome Back!</CardTitle>
             <CardDescription>Please enter your data to login!</CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col  w-full">
-            <div className="w-full mb-3">
-              <div className="mb-3 w-full">
-                <Label>Email</Label>
-                <Input
-                  placeholder="Input your email here.."
-                  className="w-full"
-                  type="email"
-                ></Input>
-              </div>
-              <div>
-                <div>
-                  <Label>Password</Label>
+          <form
+            action="
+          "
+            className="w-full"
+          >
+            <CardContent className="flex flex-col  w-full">
+              <div className="w-full mb-3">
+                <div className="mb-3 w-full">
+                  <Label>Email</Label>
                   <Input
-                    placeholder="Input your password here.."
-                    className="w-full inline-block"
-                    type="password"
+                    placeholder="Input your email here.."
+                    className="w-full"
+                    type="email"
                   ></Input>
                 </div>
+                <div>
+                  <div>
+                    <Label>Password</Label>
+                    <Input
+                      placeholder="Input your password here.."
+                      className="w-full inline-block"
+                      type="password"
+                    ></Input>
+                  </div>
+                </div>
               </div>
-            </div>
-            <Button>Login</Button>
-          </CardContent>
+              <Button>Login</Button>
+            </CardContent>
+          </form>
 
           <p className="text-xs font-semibold text-gray-400 text-center mx-auto">
             OR
