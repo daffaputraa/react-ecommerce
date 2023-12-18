@@ -10,12 +10,14 @@ import { Google, Facebook } from "@mui/icons-material";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+// import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const Register = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -24,7 +26,6 @@ const Register = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-
         .max(15, "Karakter harus kurang dari 15")
         .required("Required"),
       email: Yup.string().email("invalid email").required("Required"),
@@ -35,49 +36,11 @@ const Register = () => {
           "Ups, pastikan masukkan passwod dengan huruf besar, huruf kecil, dan spesial karakter"
         ),
     }),
-    onSubmit: () => {
-      console.log(formik.values);
+    onSubmit: (values) => {
+      localStorage.setItem("data", JSON.stringify(formik.values));
+      navigate("/login", { state: values });
     },
   });
-
-  // // initial value formik
-  // const [color, setColor] = useState("");
-  // const [validator, setValidator] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [isValidEmail, setIsValidEmail] = useState(true);
-  // const [emailText, setEmailText] = useState("");
-
-  // const handlePassword = (e: any) => {
-  //   const newPassword = e.target.value;
-  //   setPassword(newPassword);
-  //   if (newPassword.length > 1) {
-  //     setColor("text-red-500");
-  //     setValidator("Your password is really weakkkk!😔");
-  //   }
-  //   if (newPassword.length == 5 || newPassword.length > 5) {
-  //     setColor("text-yellow-500");
-  //     setValidator(
-  //       "Umm.., it's enough but would be better if you make it longer!🤗"
-  //     );
-  //   }
-  //   if (newPassword.length > 8) {
-  //     setColor("text-blue-500");
-  //     setValidator("It's Enouggghhhh, cool 😄");
-  //   }
-
-  //   // pake if dulu biar gampang walau panjang
-  // };
-
-  // useEffect(() => {
-  //   if (email.length > 1) {
-  //     if (email.endsWith("@gmail.com")) {
-  //       setIsValidEmail(true);
-  //     } else {
-  //       setIsValidEmail(false);
-  //     }
-  //   }
-  // }, [email]);
 
   return (
     <>
@@ -90,7 +53,7 @@ const Register = () => {
                 Input what it takes, to registes.
               </CardDescription>
             </CardHeader>
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} className="w-full">
               <CardContent className="flex flex-col  w-full">
                 <div className="w-full mb-3">
                   <div className="mb-3 w-full">
@@ -146,11 +109,9 @@ const Register = () => {
                 <Button type="submit">Register</Button>
               </CardContent>
             </form>
-
             <small className="text-xs font-semibold text-gray-400 text-center mx-auto">
               OR
             </small>
-
             <CardFooter className="flex-col gap-2 w-full pt-6">
               <Button className="gap-2 w-full" variant={"outline"}>
                 <Google></Google>
