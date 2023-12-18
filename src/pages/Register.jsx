@@ -15,8 +15,10 @@ import { Link, useNavigate } from "react-router-dom";
 // import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
 
 const Register = () => {
+  const [data, setData] = useState([]);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -37,8 +39,16 @@ const Register = () => {
         ),
     }),
     onSubmit: (values) => {
-      localStorage.setItem("data", JSON.stringify(formik.values));
-      navigate("/login", { state: values });
+      const existingData = JSON.parse(localStorage.getItem("data"));
+      const newData = [existingData, values];
+      console.log(newData);
+      localStorage.setItem("data", JSON.stringify(newData));
+      setData(newData);
+      console.log(newData);
+
+      formik.resetForm();
+
+      // navigate("/login", { state: values });
     },
   });
 
@@ -63,6 +73,7 @@ const Register = () => {
                       className="w-full"
                       type="text"
                       name="name"
+                      value={formik.values.name}
                       onChange={formik.handleChange}
                     ></Input>
                     {formik.touched.name && formik.errors.name ? (
@@ -80,6 +91,7 @@ const Register = () => {
                       className="w-full"
                       type="email"
                       name="email"
+                      value={formik.values.email}
                       onChange={formik.handleChange}
                     ></Input>
                     <small className={`text-red-500`}>
@@ -96,6 +108,7 @@ const Register = () => {
                         className="w-full inline-block"
                         type="password"
                         name="password"
+                        value={formik.values.password}
                         onChange={formik.handleChange}
                       ></Input>
                       <small className={`text-red-500`}>
